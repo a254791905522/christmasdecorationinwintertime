@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Decor Game · Festive Hidden Object Fun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a1610;
+            background-image:
+                radial-gradient(ellipse 120% 70% at 50% -10%, rgba(196, 30, 58, 0.18), transparent 50%),
+                radial-gradient(ellipse 80% 50% at 0% 100%, rgba(212, 175, 55, 0.12), transparent 45%),
+                radial-gradient(ellipse 70% 40% at 100% 60%, rgba(34, 139, 34, 0.14), transparent 40%),
+                linear-gradient(180deg, #061208 0%, #0d1f14 35%, #0a1610 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            position: relative;
+            overflow-x: hidden;
+            color: #e8f0e8;
+        }
+
+        .snow-layer {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.35;
+            background-image:
+                radial-gradient(2px 2px at 10% 20%, rgba(255, 255, 255, 0.9), transparent),
+                radial-gradient(2px 2px at 30% 70%, rgba(255, 255, 255, 0.7), transparent),
+                radial-gradient(1.5px 1.5px at 70% 30%, rgba(255, 255, 255, 0.85), transparent),
+                radial-gradient(1.5px 1.5px at 90% 80%, rgba(255, 255, 255, 0.6), transparent),
+                radial-gradient(2px 2px at 50% 50%, rgba(255, 255, 255, 0.5), transparent);
+            background-size: 200px 200px, 280px 280px, 220px 220px, 260px 260px, 320px 320px;
+            animation: drift 28s linear infinite;
+        }
+
+        @keyframes drift {
+            from { transform: translateY(0); }
+            to { transform: translateY(200px); }
+        }
+
+        .glow-ornament {
+            position: fixed;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(60px);
+            opacity: 0.45;
+        }
+
+        .glow-ornament.a {
+            top: -80px;
+            right: -60px;
+            background: radial-gradient(circle, rgba(196, 30, 58, 0.5) 0%, transparent 70%);
+        }
+
+        .glow-ornament.b {
+            bottom: -100px;
+            left: -80px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.35) 0%, transparent 70%);
+        }
+
+        .container {
+            background: linear-gradient(165deg, rgba(18, 48, 32, 0.92) 0%, rgba(8, 28, 18, 0.96) 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 24px;
+            border: 2px solid rgba(212, 175, 55, 0.35);
+            box-shadow:
+                0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+                0 24px 56px rgba(0, 0, 0, 0.5),
+                0 0 60px rgba(196, 30, 58, 0.08);
+            max-width: 600px;
+            width: 100%;
+            padding: 42px 36px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 24px;
+            right: 24px;
+            height: 3px;
+            border-radius: 0 0 4px 4px;
+            background: linear-gradient(90deg, transparent, #c41e3a, #d4af37, #228b22, #d4af37, #c41e3a, transparent);
+            opacity: 0.85;
+        }
+
+        .game-icon {
+            width: 104px;
+            height: 104px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            line-height: 1;
+            background: linear-gradient(145deg, rgba(196, 30, 58, 0.25) 0%, rgba(34, 139, 34, 0.2) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.45);
+            border-radius: 22px;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), 0 0 28px rgba(212, 175, 55, 0.12);
+        }
+
+        h1 {
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 8px;
+            line-height: 1.1;
+            color: #fff8e8;
+            text-shadow: 0 2px 16px rgba(212, 175, 55, 0.25);
+        }
+
+        h1 .gold {
+            background: linear-gradient(105deg, #f4e4a6 0%, #d4af37 40%, #fff8dc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #a8c9a8;
+            font-size: 1.02rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .badge {
+            background: rgba(196, 30, 58, 0.2);
+            border: 1px solid rgba(196, 30, 58, 0.45);
+            color: #f0c8ce;
+            padding: 7px 13px;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .badge.alt {
+            background: rgba(34, 139, 34, 0.18);
+            border-color: rgba(80, 180, 100, 0.4);
+            color: #b8e4c0;
+        }
+
+        .description {
+            text-align: left;
+            color: #b8d4b8;
+            line-height: 1.82;
+            font-size: 0.97rem;
+            margin-bottom: 22px;
+        }
+
+        .description strong {
+            color: #f0f5f0;
+            font-weight: 700;
+        }
+
+        .scene-box {
+            text-align: left;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 18px 20px;
+            margin-bottom: 22px;
+        }
+
+        .scene-box h3 {
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 12px;
+        }
+
+        .scene-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .scene-box li {
+            color: #b8d4b8;
+            padding: 6px 0 6px 26px;
+            position: relative;
+            font-size: 0.93rem;
+            line-height: 1.55;
+        }
+
+        .scene-box li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: #c41e3a;
+            font-size: 0.75rem;
+            top: 0.55em;
+        }
+
+        .features {
+            text-align: left;
+            margin-bottom: 28px;
+        }
+
+        .features h3 {
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #90c990;
+            margin-bottom: 12px;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            color: #b8d4b8;
+            padding: 7px 0 7px 28px;
+            position: relative;
+            font-size: 0.94rem;
+            line-height: 1.58;
+        }
+
+        .features li::before {
+            content: "★";
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-size: 0.7em;
+            top: 10px;
+        }
+
+        .app-store-button {
+            display: inline-block;
+            background: linear-gradient(145deg, #c41e3a 0%, #8b1538 100%);
+            color: #fff;
+            padding: 15px 36px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: 'Quicksand', sans-serif;
+            letter-spacing: 0.04em;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 28px rgba(196, 30, 58, 0.45);
+        }
+
+        .app-store-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 36px rgba(196, 30, 58, 0.55);
+            color: #fff;
+        }
+
+        .footer {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            font-size: 0.84rem;
+            color: #6a8a6a;
+            font-weight: 600;
+        }
+
+        .footer a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+            color: #f0e6a8;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.1rem; }
+            .container { padding: 32px 22px; }
+            .game-icon { width: 92px; height: 92px; font-size: 48px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="snow-layer" aria-hidden="true"></div>
+    <div class="glow-ornament a" aria-hidden="true"></div>
+    <div class="glow-ornament b" aria-hidden="true"></div>
+
+    <div class="container">
+        <div class="game-icon" role="img" aria-label="Christmas tree">🎄</div>
+        <h1><span class="gold">Christmas Decor Game</span></h1>
+        <p class="subtitle">Festive hidden object fun</p>
+
+        <div class="badges">
+            <span class="badge">Free</span>
+            <span class="badge alt">Puzzle</span>
+            <span class="badge">iPhone &amp; iPad</span>
+            <span class="badge alt">4+</span>
+        </div>
+
+        <div class="description">
+            <p>Step into a <strong>magical holiday world</strong> filled with beautifully decorated Christmas scenes. <strong>Christmas Decor Game</strong> is a hidden object adventure: search each scene, spot every item on your list, and finish before the timer runs out. Earn stars, unlock new levels, and use hints when a tricky decoration hides in plain sight.</p>
+        </div>
+
+        <div class="scene-box">
+            <h3>How you play</h3>
+            <ul>
+                <li>Explore rich, festive rooms and winter tableaux packed with detail.</li>
+                <li>Find every hidden object before time runs out to clear the level.</li>
+                <li>Chase high scores with the star rating—speed and accuracy matter.</li>
+                <li>Use hints when you are stuck; difficulty grows as you progress.</li>
+            </ul>
+        </div>
+
+        <div class="features">
+            <h3>Why players love it</h3>
+            <ul>
+                <li><strong>Stunning Christmas-themed art</strong>—cozy lights, ornaments, and winter charm.</li>
+                <li><strong>Timer-based challenges</strong> that reward sharp eyes and calm focus.</li>
+                <li><strong>Smooth, simple controls</strong>—tap to find; perfect for quick sessions.</li>
+                <li><strong>Progressive difficulty</strong>—each level adds new surprises to spot.</li>
+                <li>Relaxing for a quiet evening or exciting when you race the clock—your choice.</li>
+            </ul>
+        </div>
+
+        <a href="https://apps.apple.com/us/app/christmas-decor-game/id1067298825?uo=4" class="app-store-button" target="_blank" rel="noopener noreferrer">
+            Download on the App Store
+        </a>
+
+        <div class="footer">
+            <a href="privacy.html">Privacy Policy</a> · Christmas Decor Game
+        </div>
+    </div>
+</body>
+
+</html>

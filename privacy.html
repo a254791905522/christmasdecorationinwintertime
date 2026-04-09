@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy · Christmas Decor Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            background: #f4efe4;
+            color: #2c3d2c;
+            line-height: 1.75;
+            min-height: 100vh;
+        }
+
+        .page-frame {
+            min-height: 100vh;
+            border: 12px solid transparent;
+            border-image: repeating-linear-gradient(
+                45deg,
+                #8b1538,
+                #8b1538 8px,
+                #1a4d2e 8px,
+                #1a4d2e 16px,
+                #b8860b 16px,
+                #b8860b 24px,
+                #1a4d2e 24px,
+                #1a4d2e 32px
+            ) 12;
+            background-clip: padding-box;
+        }
+
+        @supports not (border-image: repeating-linear-gradient(45deg, red, red 1px) 1) {
+            .page-frame {
+                border: 8px solid #1a4d2e;
+                box-shadow: inset 0 0 0 4px #b8860b;
+            }
+        }
+
+        .inner {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 48px 28px 80px;
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 36px;
+            margin-bottom: 36px;
+            border-bottom: 3px double #8b1538;
+        }
+
+        .holly {
+            font-size: 1.75rem;
+            letter-spacing: 0.5em;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.75rem, 5vw, 2.25rem);
+            font-weight: 700;
+            color: #1a4d2e;
+            letter-spacing: 0.02em;
+        }
+
+        header .app-line {
+            margin-top: 10px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #8b1538;
+        }
+
+        header .meta {
+            margin-top: 18px;
+            font-size: 0.92rem;
+            color: #5c6b5c;
+            font-style: italic;
+        }
+
+        .toc {
+            background: #fffdf8;
+            border: 1px solid #d4c4a8;
+            border-left: 4px solid #b8860b;
+            padding: 20px 22px 20px 26px;
+            margin-bottom: 40px;
+        }
+
+        .toc strong {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            color: #1a4d2e;
+            margin-bottom: 12px;
+        }
+
+        .toc ol {
+            margin: 0;
+            padding-left: 1.25rem;
+            color: #3d523d;
+            font-size: 0.95rem;
+        }
+
+        .toc a {
+            color: #8b1538;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            margin-bottom: 36px;
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #fff;
+            background: linear-gradient(90deg, #1a4d2e 0%, #2d6a45 100%);
+            padding: 10px 16px;
+            margin-bottom: 16px;
+            border-radius: 2px;
+        }
+
+        section p {
+            font-size: 1rem;
+            margin-bottom: 14px;
+            color: #2c3d2c;
+        }
+
+        section p:last-child {
+            margin-bottom: 0;
+        }
+
+        section strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .callout {
+            background: #fffdf8;
+            border: 1px solid #e8dcc8;
+            padding: 18px 20px;
+            margin-top: 14px;
+            border-radius: 4px;
+        }
+
+        .callout p {
+            margin-bottom: 10px;
+        }
+
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+
+        dl.grid {
+            display: grid;
+            gap: 12px 20px;
+            margin-top: 8px;
+        }
+
+        dl.grid dt {
+            font-weight: 600;
+            color: #1a4d2e;
+            font-size: 0.92rem;
+        }
+
+        dl.grid dd {
+            margin: 0 0 8px 0;
+            padding-left: 0;
+            font-size: 0.98rem;
+            color: #3d523d;
+        }
+
+        nav.back {
+            margin-top: 48px;
+            padding-top: 28px;
+            border-top: 2px solid #c9b896;
+            text-align: center;
+        }
+
+        nav.back a {
+            display: inline-block;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #8b1538;
+            text-decoration: none;
+            padding: 10px 24px;
+            border: 2px solid #8b1538;
+            border-radius: 4px;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        nav.back a:hover {
+            background: #8b1538;
+            color: #fffdf8;
+        }
+
+        @media (max-width: 640px) {
+            .inner { padding: 32px 18px 64px; }
+            .page-frame { border-width: 6px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-frame">
+        <div class="inner">
+            <header>
+                <div class="holly" aria-hidden="true">❧ ❧ ❧</div>
+                <h1>Privacy Policy</h1>
+                <p class="app-line">Christmas Decor Game</p>
+                <p class="meta">Last updated: April 2026</p>
+            </header>
+
+            <nav class="toc" aria-label="Table of contents">
+                <strong>Contents</strong>
+                <ol>
+                    <li><a href="#scope">Scope</a></li>
+                    <li><a href="#collection">Data collection</a></li>
+                    <li><a href="#apple">Apple and the App Store</a></li>
+                    <li><a href="#device">Information on your device</a></li>
+                    <li><a href="#ads">Advertising</a></li>
+                    <li><a href="#children">Children and age rating</a></li>
+                    <li><a href="#changes">Updates to this policy</a></li>
+                </ol>
+            </nav>
+
+            <section id="scope">
+                <h2>1. Scope</h2>
+                <p>This policy describes privacy practices for the mobile application <strong>Christmas Decor Game</strong> distributed on Apple’s App Store. It applies to use of the app on supported iPhone, iPad, and compatible Apple devices. It does not govern other products or services unless we say so in a future update here.</p>
+            </section>
+
+            <section id="collection">
+                <h2>2. Data collection</h2>
+                <p>According to the <strong>App Privacy</strong> details shown on the App Store listing for Christmas Decor Game, the developer has indicated that <strong>this app does not collect data</strong> from you for the categories Apple requires developers to disclose there.</p>
+                <div class="callout">
+                    <p>Store labels can change when the app is updated. For the latest disclosure, open the app’s page on the App Store and review the <strong>App Privacy</strong> section.</p>
+                </div>
+            </section>
+
+            <section id="apple">
+                <h2>3. Apple and the App Store</h2>
+                <p>Installing, updating, or purchasing through the App Store involves processing by <strong>Apple Inc.</strong> under Apple’s own terms and privacy policy. That includes account, billing, and device-related processing that Apple controls. We do not operate those systems.</p>
+            </section>
+
+            <section id="device">
+                <h2>4. Information on your device</h2>
+                <p>The game may store <strong>local data</strong> on your device—such as level progress, preferences, or similar settings—so gameplay works without requiring a constant network connection. This information ordinarily remains on your device unless a future version explicitly syncs or transmits it; any change would be reflected in App Store release notes and privacy labeling where applicable.</p>
+            </section>
+
+            <section id="ads">
+                <h2>5. Advertising</h2>
+                <p>The App Store age and content information for this app notes that it <strong>contains advertising</strong>. Ad networks and partners, if shown inside the app, may use their own technologies subject to their policies and to platform rules. Review in-app experiences and system privacy settings (including Apple’s tracking and advertising controls) if you want to limit related activity.</p>
+            </section>
+
+            <section id="children">
+                <h2>6. Children and age rating</h2>
+                <p>The app is rated <strong>4+</strong> on the App Store. Parents and guardians can use Apple’s Screen Time, Family Sharing, and purchase controls to manage installs and spending. This policy is written in plain language; younger users should review it with a responsible adult.</p>
+            </section>
+
+            <section id="changes">
+                <h2>7. Updates to this policy</h2>
+                <p>We may revise this page to keep it accurate or to match changes to the app or platform requirements. When we do, we will update the <strong>Last updated</strong> date at the top. Continued use of the app after changes means you accept the revised policy, except where applicable law requires different steps.</p>
+                <dl class="grid">
+                    <dt>Questions about the app</dt>
+                    <dd>Use the support or feedback options provided in the App Store listing for Christmas Decor Game (for example “App Support” where available).</dd>
+                </dl>
+            </section>
+
+            <nav class="back">
+                <a href="index.html">Return to game overview</a>
+            </nav>
+        </div>
+    </div>
+</body>
+
+</html>
